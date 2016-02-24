@@ -1,0 +1,35 @@
+GIT
+  remote: git://github.com/DigixGlobal/ethereum-ruby.git
+  revision: b8d3b302d3457dcddf38729c0fa20cb7448cf8cb
+  specs:
+    ethereum (0.4.95)
+      activesupport
+      sha3-pure-ruby
+
+GEM
+  remote: http://rubygems.org/
+  specs:
+    activesupport (4.2.5.1)
+      i18n (~> 0.7)
+      json (~> 1.7, >= 1.7.7)
+      minitest (~> 5.1)
+      thread_safe (~> 0.3, >= 0.3.4)
+      tzinfo (~> 1.1)
+    hashie (3.4.3)
+    i18n (0.7.0)
+    json (1.8.3)
+    minitest (5.8.4)
+    sha3-pure-ruby (0.1.1)
+    thread_safe (0.3.5)
+    tzinfo (1.2.2)
+      thread_safe (~> 0.1)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  ethereum!
+  hashie
+
+BUNDLED WITH
+   1.11.2
