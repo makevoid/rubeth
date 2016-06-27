@@ -1,0 +1,1 @@
+[{"constant":false,"inputs":[{"name":"_data","type":"bytes32"}],"name":"setData","outputs":[],"type":"function"},{"constant":true,"inputs":[],"name":"data","outputs":[{"name":"","type":"bytes32"}],"type":"function"}]

@@ -1,4 +1,12 @@
-require_relative 'env'
+require_relative 'config/env'
+
+# start geth
+#
+# for example:
+#
+#     geth --genesis config/genesis.json --dev console
+#
+
 
 eth = Rubeth.new
 
@@ -52,3 +60,29 @@ puts "from:     #{tx_latest.from}"
 puts "to:       #{tx_latest.to}"
 puts "gas:      #{eth.to_i tx_latest.gas}"
 puts "gasPrice: #{eth.to_i tx_latest.gasPrice}"
+
+
+# -------------
+
+init = Ethereum::Initializer.new "#{PATH}/contracts/SimpleStorage.sol", eth.eth
+init.build_all
+simple_storage = SimpleStorage.new
+simple_storage.deploy_and_wait(10)
+simple_storage.at "0x8b08c285b63beb7772e98b7ed1dec2294f853050"
+
+data = simple_storage.call_raw_data
+puts "data:"
+p data
+puts
+
+
+tx = simple_storage.transact_and_wait_set_data "a"
+puts "tx:"
+p tx
+sleep 3
+puts
+
+data = simple_storage.call_raw_data
+puts "data:"
+p data
+puts

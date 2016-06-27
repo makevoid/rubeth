@@ -2,8 +2,11 @@ class Rubeth
   DEBUG = false
   # DEBUG = true # uncomment to debug
 
+  attr_reader :eth
+
   def initialize
-    @eth = Ethereum::IpcClient.new
+    # @eth = Ethereum::IpcClient.new
+    @eth = Ethereum::IpcClient.new "/home/makevoid/eth-db/bapp/geth.ipc"
   end
 
   # this defines all the method - same as https://github.com/DigixGlobal/ethereum-ruby/blob/master/lib/ethereum/ipc_client.rb
@@ -32,7 +35,7 @@ class Rubeth
   end
 
   def hex2int(hex_string)
-    hex_string.to_i 16
+    hex_string && hex_string.to_i(16)
   end
   alias :to_i :hex2int
 
