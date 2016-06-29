@@ -3,12 +3,24 @@
 Playing with `ethereum-ruby`, creating a wrapper class to get result data formatted correctly and raise custom errors
 
 Current status:
-- connect, ask balance, list address and not much 
+- connect, ask balance, list address and not much
 
 
 ### Setup
 
     bundle
+
+### Configure
+
+If you're **starting geth manually**....
+
+Copy the default genesis.json config:
+
+    cp config/genesis.default.json config/genesis.json
+
+
+Edit conifg/gensis.json and replace ADDRESS with your ethereum address (you need to call `eth.coinbase` / `eth.getCoinbase` from a geth console - you can `geth attach` for example)  
+...otherwise you're good
 
 ### Run
 
@@ -34,6 +46,3 @@ Run the Rubeth docker container it:
   ./run
 
 The first time it will fail because of ipc permissions
-
-
-
