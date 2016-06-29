@@ -86,3 +86,7 @@ data = simple_storage.call_raw_data
 puts "data:"
 p data
 puts
+
+# run this file this:
+#
+# ruby rubeth.rb
