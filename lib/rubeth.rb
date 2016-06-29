@@ -5,8 +5,13 @@ class Rubeth
   attr_reader :eth
 
   def initialize
-    # @eth = Ethereum::IpcClient.new
-    @eth = Ethereum::IpcClient.new IPC_PATH
+    @eth = if IPC
+      # Ethereum::IpcClient.new # default, ~/.ethereum (in $HOME)
+      Ethereum::IpcClient.new  IPC_PATH
+    else
+      Ethereum::HttpClient.new RPC_HOST, RPC_PORT
+      # Ethereum::HttpClient.new < TODO: implement defaults like with IPC client good defaults
+    end
   end
 
   # this defines all the method - same as https://github.com/DigixGlobal/ethereum-ruby/blob/master/lib/ethereum/ipc_client.rb

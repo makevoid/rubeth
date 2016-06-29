@@ -1,0 +1,18 @@
+path=/var/lib/docker/volumes/datadir/_data/geth.ipc
+echo
+
+
+echo "Changing permissions:"
+echo
+echo path: $path
+echo
+ls -al $path
+echo
+
+sudo chmod 777         $path
+sudo chown $USER:$USER $path
+
+echo "New permissions:"
+echo
+ls -al $path
+echo

@@ -16,9 +16,15 @@ RUN apt-get install -y git
 
 RUN mkdir /app
 WORKDIR /app
-ADD . /app
 
 ENV BUNDLE_PATH /tmp/bundle
-
+ADD Gemfile /app
+ADD Gemfile.lock /app
 RUN bundle install
+
+# global add
+ADD . /app
+# RUN bundle install
+
+
 CMD ./run_app.sh

@@ -1,5 +1,6 @@
-PATH
-  remote: ~/apps/ethereum-ruby
+GIT
+  remote: git://github.com/makevoid/ethereum-ruby.git
+  revision: a85303cddd34328a5307abd2fdafe0d1959fec48
   specs:
     ethereum (0.5.2)
       activesupport

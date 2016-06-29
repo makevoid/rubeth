@@ -1,1 +1,0 @@
-sudo chown $USER:$USER /var/lib/docker/volumes/datadir/_data/geth.ipc
