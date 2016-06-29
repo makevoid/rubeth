@@ -43,6 +43,6 @@ Check that docker works
 
 Run the Rubeth docker container it:
 
-  ./run
+    ./run
 
 The first time it will fail because of ipc permissions
