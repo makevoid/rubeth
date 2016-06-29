@@ -6,7 +6,7 @@ class Rubeth
 
   def initialize
     # @eth = Ethereum::IpcClient.new
-    @eth = Ethereum::IpcClient.new "/home/makevoid/eth-db/bapp/geth.ipc"
+    @eth = Ethereum::IpcClient.new IPC_PATH
   end
 
   # this defines all the method - same as https://github.com/DigixGlobal/ethereum-ruby/blob/master/lib/ethereum/ipc_client.rb

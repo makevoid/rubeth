@@ -1,0 +1,3 @@
+docker build --tag makevoid/rubeth .       && \
+
+docker run -ti -p 3003:3003 makevoid/rubeth
