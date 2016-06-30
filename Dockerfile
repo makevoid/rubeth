@@ -19,6 +19,7 @@ FROM makevoid/ruby-ubuntu
 
 ENV DEBIAN_FRONTEND noninteractive
 
+USER root
 
 RUN apt-get update && \
     apt-get upgrade -q -y && \
@@ -47,5 +48,6 @@ RUN bundle install
 ADD . /app
 # RUN bundle install
 
+USER www
 
 CMD ./run_app.sh

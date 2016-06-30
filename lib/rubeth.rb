@@ -17,8 +17,9 @@ class Rubeth
   # this defines all the method - same as https://github.com/DigixGlobal/ethereum-ruby/blob/master/lib/ethereum/ipc_client.rb
   Ethereum::IpcClient::RPC_COMMANDS.each do |command|
     meth = "#{command.split("_")[1].underscore}"
+    command = command.underscore
     define_method meth do |*args|
-      resp = @eth.send meth, *args
+      resp = @eth.send command, *args
       p resp if DEBUG
       conv meth, resp["result"]
     end

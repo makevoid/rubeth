@@ -1,10 +1,9 @@
-GIT
-  remote: git://github.com/makevoid/ethereum-ruby.git
-  revision: a85303cddd34328a5307abd2fdafe0d1959fec48
+PATH
+  remote: ~/apps/ethereum-ruby
   specs:
-    ethereum (0.5.2)
+    ethereum (1.5.2)
       activesupport
-      sha3-pure-ruby (= 0.1.1)
+      digest-sha3 (~> 1.1)
 
 GEM
   remote: http://rubygems.org/
@@ -15,11 +14,11 @@ GEM
       minitest (~> 5.1)
       thread_safe (~> 0.3, >= 0.3.4)
       tzinfo (~> 1.1)
+    digest-sha3 (1.1.0)
     hashie (3.4.4)
     i18n (0.7.0)
     json (1.8.3)
     minitest (5.9.0)
-    sha3-pure-ruby (0.1.1)
     thread_safe (0.3.5)
     tzinfo (1.2.2)
       thread_safe (~> 0.1)

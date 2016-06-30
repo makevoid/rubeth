@@ -10,11 +10,15 @@ require_relative 'config/env'
 
 eth = Rubeth.new
 
+
+# puts "Coinbase:"
+# puts eth.eth.eth_coinbase
+
 puts "Coinbase:"
 puts eth.coinbase
 puts
 
-balance = eth.get_balance "0"
+balance = eth.get_balance eth.coinbase
 
 puts "Balance:"
 puts "#{balance} wei"
@@ -67,8 +71,18 @@ puts "gasPrice: #{eth.to_i tx_latest.gasPrice}"
 init = Ethereum::Initializer.new "#{PATH}/contracts/SimpleStorage.sol", eth.eth
 init.build_all
 simple_storage = SimpleStorage.new
-simple_storage.deploy_and_wait(10)
-simple_storage.at "0x8b08c285b63beb7772e98b7ed1dec2294f853050"
+begin
+ simple_storage.deploy_and_wait 3
+rescue RuntimeError => e
+  puts "deploy_and_wait failed (timeout) - Probably geth's ethCode is still buggy"
+end
+
+puts "------------"
+puts simple_storage.deployment.contract_address
+puts "------------"
+exit
+
+simple_storage.at "0x2db7f12be27d2a5a1731487cdde151ae059d98bc"
 
 data = simple_storage.call_raw_data
 puts "data:"
