@@ -1,0 +1,19 @@
+version: '2'
+services:
+  web:
+    build: .
+    ports:
+     - "3003:3003"
+    volumes:
+     - .:/app
+    depends_on:
+     - ethereum
+    links:
+     - ethereum:ethereum
+  ethereum:
+    build: ~/apps/ethereum-geth-dev-solc
+
+
+  # ethereum-geth-dev:
+  #   image: makevoid/ethereum-geth-dev-alpha
+    # image: makevoid/ethereum-geth-dev

@@ -1,1 +1,1 @@
- bundle exec ruby rubeth.rb
+sleep 3  && bundle exec ruby rubeth.rb
