@@ -35,6 +35,7 @@ RUN apt-get update && \
 # -----
 
 RUN apt-get install -y git
+RUN apt-get install -y git
 
 RUN mkdir /app
 WORKDIR /app
@@ -42,14 +43,19 @@ WORKDIR /app
 ENV BUNDLE_PATH /tmp/bundle
 ADD Gemfile /app
 ADD Gemfile.lock /app
+
+ENV DOCKER 1
+
+RUN chown www:www -R /usr/local/bundle
+RUN gem install bundler
+
+USER www
 RUN bundle install
 
 # global add
 ADD . /app
 # RUN bundle install
 
-ENV DOCKER 1
 
-USER www
 
 CMD ./run_app.sh
