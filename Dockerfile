@@ -40,16 +40,19 @@ RUN apt-get install -y git
 RUN mkdir /app
 WORKDIR /app
 
+RUN chown www:www -R /usr/local/bundle
+RUN chown www:www -R /app
+
+USER www
+
 ENV BUNDLE_PATH /tmp/bundle
 ADD Gemfile /app
 ADD Gemfile.lock /app
 
 ENV DOCKER 1
 
-RUN chown www:www -R /usr/local/bundle
 RUN gem install bundler
 
-USER www
 RUN bundle install
 
 # global add
