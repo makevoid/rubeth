@@ -1,3 +1,25 @@
+# Aliases
+#
+# alias dc=docker-compose
+
+
+# Run
+#
+#      bc build && bc up
+
+# Prerequisites
+#
+# - Docker
+# - Docker compose
+
+# search on github: "user:makevoid ethereum-geth-dev"
+#
+#  Select your build by changing this line of code:
+# https://github.com/makevoid/rubeth/blob/master/docker-compose.yml#L14 (select your build)
+#
+# TIP: This is a YML file, unlike JSON it allows to add comments :D
+#
+#
 version: '2'
 services:
   web:
@@ -11,8 +33,7 @@ services:
     links:
      - ethereum:ethereum
   ethereum:
-    build: ~/apps/ethereum-geth-dev-solc
-
+    image: makevoid/ethereum-geth-dev
 
   # ethereum-geth-dev:
   #   image: makevoid/ethereum-geth-dev-alpha

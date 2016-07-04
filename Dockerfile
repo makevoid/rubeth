@@ -48,6 +48,8 @@ RUN bundle install
 ADD . /app
 # RUN bundle install
 
+ENV DOCKER 1
+
 USER www
 
 CMD ./run_app.sh

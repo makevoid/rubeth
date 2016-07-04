@@ -22,7 +22,7 @@ IPC_PATH = "#{DOCKER_VOLUMES}/datadir/_data/geth.ipc"
 # puts `ping 172.20.0.2`.inspect
 
 def dockerized?
-  ENV["NODOCKER"] != "1"
+  ENV["DOCKER"] == "1"
 end
 
 RPC_HOST = unless dockerized?
